@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+- tapOn: "Don't Show Again"
+- tapOn: ${MENU_BUTTON}
+- tapOn: ${MENU_LOGIN_BUTTON}
+- tapOn:
+    id: ${USERNAME_FIELD}
+- inputText: "bod@example.com"
+- tapOn:
+    id: ${PASSWORD_FIELD}
+- inputText: "10203040"
+- tapOn: ${LOGIN_BUTTON}
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${PRODUCT_IMAGE}
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "$ 29.99"
+- tapOn: "Black color"
+- scrollUntilVisible:
+    element: "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection."

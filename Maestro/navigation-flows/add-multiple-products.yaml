@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+
+- tapOn: "Don't Show Again"
+
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${PRODUCT_IMAGE}
+
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${INCREASE_ITEM_QUANTITY}
+- assertVisible: "2"
+- tapOn: ${ADD_TO_CART}
+- tapOn: ${VIEW_CART}
+
+- assertVisible: ${ITEM_QUANTITY}

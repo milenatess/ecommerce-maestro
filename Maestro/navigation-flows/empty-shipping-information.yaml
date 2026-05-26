@@ -1,0 +1,42 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+
+- tapOn: "Don't Show Again"
+
+#Login
+- tapOn: ${MENU_BUTTON}
+- tapOn: ${MENU_LOGIN}
+- tapOn:
+    id: ${USERNAME_FIELD}
+- inputText: "bod@example.com"
+- tapOn:
+    id: ${PASSWORD_FIELD}
+- inputText: "10203040"
+- tapOn: ${LOGIN_BUTTON}
+
+#Product selection
+- assertVisible: ${PRODUCTS_TITLE}
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${PRODUCT_IMAGE}
+
+#Add item to cart
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${ADD_TO_CART}
+- tapOn: ${VIEW_CART}
+
+- assertVisible: ${ITEM_QUANTITY_1}
+- tapOn: "Proceed To Checkout"
+
+#Empty shipping information
+- scrollUntilVisible:
+    element: ${TO_PAYMENT_BUTTON}
+- tapOn: ${TO_PAYMENT_BUTTON}
+
+#Validation feedback
+- assertVisible: "Please provide your full name."
+- assertVisible: "Please provide your address."
+- assertVisible: "Please provide your city."
+- assertVisible: "Please provide your zip"
+- assertVisible: "Please provide your"

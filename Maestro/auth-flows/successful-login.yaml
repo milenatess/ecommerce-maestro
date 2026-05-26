@@ -2,9 +2,12 @@ appId: ${APP_ID}
 ---
 - launchApp:
     clearState: true
+
 - tapOn: "Don't Show Again"
+
+#Login
 - tapOn: ${MENU_BUTTON}
-- tapOn: ${MENU_LOGIN_BUTTON}
+- tapOn: ${MENU_LOGIN}
 - tapOn:
     id: ${USERNAME_FIELD}
 - inputText: "bod@example.com"
@@ -12,4 +15,5 @@ appId: ${APP_ID}
     id: ${PASSWORD_FIELD}
 - inputText: "10203040"
 - tapOn: ${LOGIN_BUTTON}
+
 - assertVisible: ${PRODUCTS_TITLE}

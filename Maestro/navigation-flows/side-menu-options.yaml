@@ -1,0 +1,20 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+
+- tapOn: "Don't Show Again"
+
+#Menu options
+- tapOn: ${MENU_BUTTON}
+- assertVisible: ${MENU_CATALOG}
+- assertVisible: ${MENU_WEBVIEW}
+- assertVisible: ${MENU_QR_CODE}
+- assertVisible: ${MENU_GEO_LOCATION}
+- assertVisible: ${MENU_DRAWING}
+- assertVisible: ${MENU_ABOUT}
+- assertVisible: ${MENU_RESET_APP_STATE}
+- assertVisible: ${MENU_FINGERPRINT}
+- assertVisible: ${MENU_VIRTUAL_USB}
+- assertVisible: ${MENU_CRASH_APP}
+- assertVisible: ${MENU_LOGIN}

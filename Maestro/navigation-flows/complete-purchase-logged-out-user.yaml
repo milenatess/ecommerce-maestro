@@ -1,0 +1,62 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+
+- tapOn: "Don't Show Again"
+
+#Product selection
+- assertVisible: ${PRODUCTS_TITLE}
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${PRODUCT_IMAGE}
+
+#Add item to cart
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: ${ADD_TO_CART}
+- tapOn: ${VIEW_CART}
+
+- assertVisible: ${ITEM_QUANTITY_1}
+- tapOn: "Proceed To Checkout"
+
+#Login
+- tapOn:
+    id: ${USERNAME_FIELD}
+- inputText: "bod@example.com"
+- tapOn:
+    id: ${PASSWORD_FIELD}
+- inputText: "10203040"
+- tapOn: ${LOGIN_BUTTON}
+
+#Fill shipping information
+- tapOn: ${FULL_NAME_FIELD_ADDRESS}
+- inputText: "Milena Test"
+- tapOn: ${ADDRESS_LINE_1_FIELD}
+- inputText: "R Capela 48"
+- tapOn: ${CITY_FIELD}
+- inputText: "Leiria"
+- tapOn: ${ZIP_CODE_FIELD}
+- inputRandomNumber:
+    length: 7
+- tapOn: ${COUNTRY_FIELD}
+- inputText: "Portugal"
+- tapOn: ${TO_PAYMENT_BUTTON}
+
+#Fill payment information
+- tapOn: ${FULL_NAME_FIELD_PAYMENT}
+- inputText: "Milena Test"
+- tapOn:
+    id: ${CARD_NUMBER_FIELD}
+- inputRandomNumber:
+    length: 16
+- tapOn: ${EXPIRATION_DATE_FIELD}
+- inputText: "03/30"
+- tapOn: ${SECURITY_CODE_FIELD}
+- inputText: "345"
+- tapOn: ${REVIEW_ORDER_BUTTON}
+
+#Checkout complete
+- scrollUntilVisible:
+    element: "Estimated to arrive within 3 weeks."
+- tapOn: ${PLACE_ORDER_BUTTON}
+
+- assertVisible: "Checkout Complete"

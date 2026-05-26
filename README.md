@@ -1,5 +1,3 @@
-# README.md
-
 ## Overview
 
 This project contains automated mobile tests developed with Maestro for the Sauce Labs sample application.

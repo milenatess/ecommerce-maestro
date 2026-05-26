@@ -6,7 +6,8 @@ appId: ${APP_ID}
 - tapOn: "Don't Show Again"
 
 #Login
-- tapOn: ${MENU_BUTTON}
+- tapOn: 
+    id: ${MENU_BUTTON}
 - tapOn: ${MENU_LOGIN}
 - tapOn:
     id: ${USERNAME_FIELD}
@@ -17,20 +18,23 @@ appId: ${APP_ID}
 - tapOn: ${LOGIN_BUTTON}
 
 #Product selection
-- assertVisible: ${PRODUCTS_TITLE}
+- assertVisible: 
+    id: ${PRODUCTS_TITLE}
 - assertVisible: "Sauce Labs Backpack"
 - tapOn: ${PRODUCT_IMAGE}
 
 #Add item to cart
 - assertVisible: "Sauce Labs Backpack"
-- tapOn: ${ADD_TO_CART}
-- tapOn: ${VIEW_CART}
+- tapOn: 
+    id: ${ADD_TO_CART}
+- tapOn: 
+    id: ${VIEW_CART}
 
 - assertVisible: ${ITEM_QUANTITY_1}
 - tapOn: "Proceed To Checkout"
 
 #Fill shipping information
-- tapOn: ${FULL_NAME_FIELD_ADDRESS}
+- tapOn: ${FULL_NAME_FIELD_SHIPPING}
 - inputText: "Milena Test"
 - tapOn: ${ADDRESS_LINE_1_FIELD}
 - inputText: "R Capela 48"
@@ -50,9 +54,11 @@ appId: ${APP_ID}
     id: ${CARD_NUMBER_FIELD}
 - inputRandomNumber:
     length: 16
-- tapOn: ${EXPIRATION_DATE_FIELD}
+- tapOn: 
+    id: ${EXPIRATION_DATE_FIELD}
 - inputText: "03/30"
-- tapOn: ${SECURITY_CODE_FIELD}
+- tapOn: 
+    id: ${SECURITY_CODE_FIELD}
 - inputText: "345"
 - tapOn: ${REVIEW_ORDER_BUTTON}
 
@@ -61,4 +67,5 @@ appId: ${APP_ID}
     element: "Estimated to arrive within 3 weeks."
 - tapOn: ${PLACE_ORDER_BUTTON}
 
-- assertVisible: "Checkout Complete"
+- assertVisible:
+    id: ${CHECKOUT_COMPLETE}

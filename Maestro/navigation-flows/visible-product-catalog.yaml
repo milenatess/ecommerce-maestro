@@ -6,8 +6,9 @@ appId: ${APP_ID}
 - tapOn: "Don't Show Again"
 
 #Login
-- tapOn: ${MENU_BUTTON}
-- tapOn: ${MENU_LOGIN_BUTTON}
+- tapOn: 
+    id: ${MENU_BUTTON}
+- tapOn: ${MENU_LOGIN}
 - tapOn:
     id: ${USERNAME_FIELD}
 - inputText: "visual@example.com"

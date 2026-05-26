@@ -6,7 +6,8 @@ appId: ${APP_ID}
 - tapOn: "Don't Show Again"
 
 #Login
-- tapOn: ${MENU_BUTTON}
+- tapOn: 
+    id: ${MENU_BUTTON}
 - tapOn: ${MENU_LOGIN}
 - tapOn:
     id: ${USERNAME_FIELD}
@@ -14,10 +15,12 @@ appId: ${APP_ID}
 - tapOn:
     id: ${PASSWORD_FIELD}
 - inputText: "10203040"
-- tapOn: ${LOGIN_BUTTON}
+- tapOn: 
+    id: ${LOGIN_BUTTON}
 
 #Logout
-- tapOn: ${MENU_BUTTON}
+- tapOn: 
+    id: ${MENU_BUTTON}
 - tapOn: ${MENU_LOGOUT}
 
 - tapOn: ${LOGOUT_BUTTON}

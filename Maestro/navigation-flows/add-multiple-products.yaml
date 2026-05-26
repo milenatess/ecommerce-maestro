@@ -5,13 +5,18 @@ appId: ${APP_ID}
 
 - tapOn: "Don't Show Again"
 
+#Product selection
 - assertVisible: "Sauce Labs Backpack"
 - tapOn: ${PRODUCT_IMAGE}
 
+#Add items to cart
 - assertVisible: "Sauce Labs Backpack"
-- tapOn: ${INCREASE_ITEM_QUANTITY}
+- tapOn: 
+    id: ${INCREASE_ITEM_QUANTITY}
 - assertVisible: "2"
-- tapOn: ${ADD_TO_CART}
-- tapOn: ${VIEW_CART}
+- tapOn:
+    id: ${ADD_TO_CART}
+- tapOn:
+    id: ${VIEW_CART}
 
-- assertVisible: ${ITEM_QUANTITY}
+- assertVisible: ${ITEM_QUANTITY_2}

@@ -5,17 +5,6 @@ appId: ${APP_ID}
 
 - tapOn: "Don't Show Again"
 
-#Login
-- tapOn: ${MENU_BUTTON}
-- tapOn: ${MENU_LOGIN_BUTTON}
-- tapOn:
-    id: ${USERNAME_FIELD}
-- inputText: "bod@example.com"
-- tapOn:
-    id: ${PASSWORD_FIELD}
-- inputText: "10203040"
-- tapOn: ${LOGIN_BUTTON}
-
 #Product selection
 - assertVisible: "Sauce Labs Backpack"
 - tapOn: ${PRODUCT_IMAGE}

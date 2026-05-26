@@ -6,7 +6,8 @@ appId: ${APP_ID}
 - tapOn: "Don't Show Again"
 
 #Menu options
-- tapOn: ${MENU_BUTTON}
+- tapOn: 
+    id: ${MENU_BUTTON}
 - assertVisible: ${MENU_CATALOG}
 - assertVisible: ${MENU_WEBVIEW}
 - assertVisible: ${MENU_QR_CODE}

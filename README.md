@@ -191,6 +191,42 @@ Research was conducted on how to reuse common steps in Maestro to reduce duplica
 
 ---
 
+## Locator Strategy & Shared IDs
+
+During the automation process, I initially prioritized using element IDs instead of visible text whenever possible, since IDs generally provide more stable and maintainable selectors.
+
+However, while exploring the application structure, I identified that several UI elements shared the same IDs across different screens or components. Because of this, some selectors needed to rely on visible text to uniquely identify the correct element during execution.
+
+Examples identified in the application:
+
+- The login button in the side menu and the login button on the login screen share the same identifier
+- Multiple products share the same product ID
+- Product images share the same identifier regardless of the selected item
+
+Because of these limitations, a mixed selector strategy was adopted using both IDs and visible text depending on the scenario.
+
+Example:
+
+```yaml
+#Login
+- tapOn: 
+    id: ${MENU_BUTTON}
+- tapOn: ${MENU_LOGIN}
+- tapOn:
+    id: ${USERNAME_FIELD}
+- inputText: "visual@example.com"
+- tapOn:
+    id: ${PASSWORD_FIELD}
+- inputText: "10203040"
+- tapOn: ${LOGIN_BUTTON}
+
+- assertVisible: ${ORANGE_BACKPACK}
+```
+
+This approach improved selector reliability while still prioritizing readability and maintainability whenever stable IDs were available.
+
+---
+
 ## Automated Test Coverage
 
 ### Login & Authentication Flows
@@ -261,14 +297,6 @@ carry.allTheThings()
 
 ---
 
-### Missing IDs on Payment Page
-
-The payment page does not expose stable or meaningful element identifiers.
-
-Some identifiers appear to contain dynamically populated information instead of fixed IDs, which makes automation more difficult and less stable.
-
----
-
 ### Incomplete Validation Message
 
 The validation feedback for the `Country` field on the shipping page displays an incomplete message.
@@ -287,12 +315,10 @@ Please provide your
 
 ---
 
-## Possible Improvements
+### Different Product Catalogs Between Users
 
-Possible future enhancements include:
+When logging in with different usernames, the product catalog is not consistent between users.
 
-- Implement reusable authentication/setup flows
-- Expand negative test coverage
-- Increase checkout and cart validation coverage
-- Improve selector strategy once the app exposes more stable identifiers
-- Add iOS execution and validation
+Different users display different product lists and/or product information, which may indicate inconsistent test data or unexpected business behavior.
+
+---

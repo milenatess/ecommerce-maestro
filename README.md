@@ -30,7 +30,9 @@ https://developer.android.com/studio
 
 4. Install the provided APK into the emulator.
 
-5. Open the project repository in Maestro Studio or your preferred IDE.
+5. Open the project repository in Maestro Studio
+
+6. Select the Android device in Maestro
 
 ---
 
@@ -193,14 +195,14 @@ Research was conducted on how to reuse common steps in Maestro to reduce duplica
 
 ## Locator Strategy & Shared IDs
 
-During the automation process, I initially prioritized using element IDs instead of visible text whenever possible, since IDs generally provide more stable and maintainable selectors.
+During the automation process, I prioritized using element IDs instead of visible text whenever possible, since IDs generally provide more stable and maintainable selectors.
 
 However, while exploring the application structure, I identified that several UI elements shared the same IDs across different screens or components. Because of this, some selectors needed to rely on visible text to uniquely identify the correct element during execution.
 
 Examples identified in the application:
 
 - The login button in the side menu and the login button on the login screen share the same identifier
-- Multiple products share the same product ID
+- All products share the same product ID
 - Product images share the same identifier regardless of the selected item
 
 Because of these limitations, a mixed selector strategy was adopted using both IDs and visible text depending on the scenario.
